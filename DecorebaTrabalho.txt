@@ -1,0 +1,18 @@
+                                                             OBSERVER
+
+  O QUE É UM PADRÃO DE PROJETO?
+Os Padrões de Projetos nos permitem reutilizar a experiência de outros desenvolvedores que tiveram problemas semelhantes e os solucionaram.
+Usando simplesmente o nome do padrão já comunicamos o design que temos em mente para uma determinada tarefa, além disso, não precisamos entrar em detalhes falando o que a classe faz, como se relaciona, com quem, etc, o padrão já deixa clara a ideia de como será feito, assim podemos nos comunicar mais rapidamente e com menos espaços para mal-entendidos.
+O grande objetivo dos padrões de projetos é ajudar os desenvolvedores a estruturar os seus aplicativos de maneiras mais flexíveis, fáceis de entender e manter.
+  
+  O QUE É OBSERVER?
+Obever é um padrão de projeto que veio para resolver um problema, mas qual? O observer tem a finalidade de definir um modelo onde uma dado seja atualizado em todos os que desejam receber esses dados, ou seja, precisamos de um sujeito e de um observador.
+
+  EM QUE SITUAÇÃO UTILIZAR?
+O padrão Observer funciona como assinaturas de jornais e revistas, ou seja, temos uma editora que publica as edições e pessoas que assinam os jornais ou revistas dessa editora e sempre recebem as novas edições assim que elas são publicadas. Enquanto a pessoa é assinante ela continua recebendo as edições na sua casa. Se a pessoa cancelar a assinatura do jornal ou da revista ela para de receber as edições.
+O padrão Observer funciona da mesma forma, no entanto, tem-se que a editora (que publica) é o chamado SUBJECT no Padrão Observer e os assinantes (que recebem as novas publicações) são os chamados OBSERVER.
+Os OBSERVERs registram-se no SUBJECT para receber atualizações quando os dados do SUBJECT são alterados. Os OBSERVERs também podem cancelar o seu registro e dessa forma não receber mais nenhuma atualização do SUBJECT.
+   
+  DIAGRAMA DE CLASSES
+No diagrama de classe acima nota-se a presença da interface Subject e da sua classe concreta ConcreteSubject que define o comportamento dos objetos para se registrarem (Attach) e também para serem removidos (Detach). O ConcreteSubject é quem implementa a interface Subject, além de definir os métodos da interface ele ainda define o seu próprio estado. O método notify() será utilizado para atualizar todos os observadores registrados sempre que o seu estado mudar. Do outro lado do diagrama tem-se o Observer e o ConcreteObserver que tem o método update() que é chamado quando o estado do Subject é alterado. A classe ConcreteObserver implementa a interface Observer, definindo assim o método update().
+
