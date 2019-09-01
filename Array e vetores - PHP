@@ -1,0 +1,49 @@
+
+
+Vetores são dinamicos, o espaço é alocado sempre que um novo elemento for adicionado    
+
+#declaração do array
+  n = array[0, 1, 2, 3]
+  #'n' recebe um array com 4 posições
+
+#add novo elemento
+  n[] = 4   ou   n[4] = 4
+  #Array 'n' recebe um novo elemento no final, na posição 4
+
+#excluir um elemento
+  unset($n[3])
+  #desaloca o elemento de indice 3
+
+#array com range();
+  #range(inicio, fim, passo)
+  $n = range(0, 5, 1)
+  print_r($n);
+
+
+#array com indices personalizados
+  $cad = array("Nome"=>"Paulo",
+               "Idade"=>20,
+               "Curso"=>"Ciencias da computação",
+               "Faculdade"=>"UNIFACS"
+  );
+  foreach ($cad as $key => $element)
+  {
+    echo $key . "=>" . $element;
+  }
+
+Não existe matriz em PHP, porem dá pra colocar vetores dentro de outros vetores
+ex:                                         
+                                              0   1
+    $matriz = array(array(0,0),             ---------
+                    array(0,1),       0     | 0 | 0 |        $matriz[2][0] = 1
+                    array(1,0),             ---------        $matriz[2][1] = 0 
+                    array(1,1)        1     | 0 | 1 |
+                    );                      ---------                        ^  
+                                      2     | 1 | 0 |     <------ Esta linha | 
+                                            ---------   
+                                      3     | 1 | 1 |
+                                            ---------
+
+
+
+
