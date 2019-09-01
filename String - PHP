@@ -1,0 +1,47 @@
+String no PHP é tudo que está entre aspas
+
+printf("Texto")
+  # %d inteiro
+  # %f real ou %.2f pra mostrar 2 casas decimais 
+
+print_r()
+  # Imprime detalhes de uma variavel
+ 
+wordwrap($texto, $caracteres, "<br>", true or false )
+  #quebra linhas em um determinado numero de caracteres
+  #o true ou falso refere se a habilidade de quebrar linhas antes da palavra acabar
+ 
+strlen()
+    #tamanho da string
+    
+trim()
+  #retira espaços antes e depois da string
+  # rtrim() faz isso no na direita e ltrim() na esquerda
+
+str_word_count($texto, $format)
+  #Conta o numero de palavras
+  # format pode ter 3 opções:
+    # 0 retorna a quantidade de palavras
+    # 1 retorna um array
+    # 2 retorna um array com indices associados a posição numerica da palavra na string
+
+explode(" ", $texto)
+# transforma a string em um array
+# sempre que encontrar um espaço em branco " ", ele vai quebrar a string
+  
+str_split($texto, $caracteres)
+  # converte string em array e corta elas em uma quantidade de $caracteres
+
+implode("caractere", $texto) ou join()
+  # tranforma um array em string separando cada elemento pelo $caractere definido
+
+chr($number)
+  # mostra a letra pelo codigo
+ord($char)
+  # mostra o codigo pela letra
+  
+substr_replace($txt, "x", $posição, $lenght);  
+  # substitui algo em uma posição de uma string por "x"
+  # substitui todos os elementos da $posição até o $lenght 
+    # se lenght = 0, nada é substituido, mas "x" é colocado naquela $posição
+  ex: substr_replace('huevos','x',-2,0); //huevxos 
