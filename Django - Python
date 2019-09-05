@@ -1,0 +1,163 @@
+Django
+Framework baseado na arquitetura MVC(Model View Controller), mais exatamente o MTV(Model Template View)
+
+MTV(Model Template View)
+  Model - Banco de dados
+    ORM (Object-Relational Mapping): Maneira que o model trata os bancos de dados
+    Ex: MySQL, MariaDb, PostgreeSQL, SQLite, Oracle
+
+  Template - Vizualização dos dados, identidade visual (Normalmente HTMl)
+    Sem codigos no template, scripts
+    Separar lógica da visualização
+    Sem redundância e repetição de código através da herança de outros templates
+
+  View - Logica 
+    Responsavel por encapsular a logica responsavavel pelas requisições do usuario e retorno de respostas
+    Ex de views já definidas:
+      
+      Views baseadas em funções
+        A view 404 – Página não encontrada
+        A view 500 – Erro no servidor
+        A view 403 – Acesso proibido
+        A view 400 – Requisição com erro
+      
+      Views baseadas em classes
+        Formview – Para apresentar formulários
+        RedirectView – Para redirecionar para outra página
+        DetailView – Para apresentar uma página básica, tipo artigo individual
+        ListView – Para mostrar uma lista de objetos, tais como lista de artigos
+  
+Estrutura do Django  
+  
+  ├── gerenciador_tarefas
+  │   ├── __pycache__
+  │   │   ├── ...
+  │   ├── __init__.py
+  │   ├── settings.py
+  │   ├── urls.py
+  │   └── wsgi.py
+  └── manage.py
+  
+  settings.py - Configurações do projeto
+    https://docs.djangoproject.com/en/2.1/ref/settings/.
+    Sempre que criar um novo app, passe o app como parametro para o array INSTALLED_APPS
+      Ex:
+        INSTALLED_APPS = [
+          'django.contrib.admin',
+          'django.contrib.auth',
+          'django.contrib.contenttypes',
+          'django.contrib.sessions',
+          'django.contrib.messages',
+          'django.contrib.staticfiles',
+          'app',
+        ]
+        #no meu caso eu adicionei o 'app'
+  
+  urls.py - Contem as rotas urls do projeto
+    
+  manage.py utilitario de comandos do Djason
+    Realiza o controle administrativo do projeto
+    https://docs.djangoproject.com/en/2.1/ref/django-admin/
+    
+Criando a aplicação com Django
+  python manage.py startapp [nome do app]
+  
+  Ex: python manage.py startapp app
+    cria o diretorio app com a seguinte estrutura:
+      ├── app
+      │   ├── __pycache__
+      │   ├── ...
+      │   ├── migrations
+      │   ├── ...
+      │   ├── admin.py
+      │   ├── apps.py
+      │   ├── __init__.py
+      │   ├── models.py
+      │   ├── tests.py
+      │   ├── urls.py
+      │   └── views.py
+    
+  admin.py - registra os models 
+  app.py - configurações comuns a todas as aplicações Django
+  models.py - Aqui ficam os models da sua aplicação.
+  teste.py - arquivos para fazer testes
+  view.py - aqui ficam as views da aplicação
+  
+  #Para rodar o server basta digitar o comando 'python manage.py runserver' e ir em localhost:8000 
+  
+Urls
+https://docs.djangoproject.com/en/2.0/topics/http/urls/
+
+  arquivo urls.py padrão:
+    
+    from django.contrib import admin
+    from django.urls import path
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', include("app.urls")), #Redireciona tudo em branco para app.urls
+    ]
+    
+  arquivo app/urls.py:    
+    
+    from django.urls import path
+    from . import views #importa as views do app
+
+    #Cria um request 'listar_tarefas' que será implementadaa na view
+    #Quando acessada a url localhost:8000/listar_tarefas, será chamada a função listar_tarefas implementada na view
+    urlpatterns = [
+        path('listar_tarefas/', listar_tarefas, name = "listar_tarefas"),
+    ]
+    
+View
+  https://docs.djangoproject.com/en/2.0/topics/http/views/
+  Modelo padrão de view:  
+    from django.shortcuts import render
+
+    # Create your views here.
+    
+    def listar_tarefas(request):
+        return render(request, "tarefas/listar_tarefas.html")
+    
+    #Cria uma função chamada listar_tarefas que será chamada através de um request pelo app/url.py
+    #A função listar_tarefas renderiza uma pagina HTML no template, a pagina tarefas/listar_tarefas.html
+Template
+  
+  Pra tudo isso funcionar, deve exitir um template
+  O Django automaticamente busca por um diretorio chamado template, então deve-se criar um com um arquivo HTML
+  
+  ├── templates
+  │   └── tarefas
+  │       └── listar_tarefas.html
+  
+  listar_tarefas.html:
+     <!DOCTYPE html>
+    <html>
+        <head lang="pt-br">
+            <meta charset="UTF-8">
+            <title>Aplicação Django</title>
+        </head>
+        <body>
+            <h1>Listagem de tarefas</h1>
+        </body>
+    </html>
+    
+    obs: pra incluir o bootstrap criamos um diretorio chamado static com um diretorio para o aplicativo e colocamos lá os codigos baixados do bootstrap e referenciar os arquivos css no <head><link href=""><head>
+    
+Ver ORM no proximo estudo
+  
+ 
+    
+
+
+  
+  
+
+  
+  
+  
+  Referencias:
+  https://cadernodelaboratorio.com.br/2018/11/23/o-modelo-mtv-no-django/
+  https://tutorial.djangogirls.org/pt
+  https://docs.djangoproject.com/pt-br/2.2/
+  
+  
