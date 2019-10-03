@@ -1,0 +1,118 @@
+Organização de arquivos
+  Tipos de bloco
+    Spanned - Bloco estendido, o arquivo que for maior que o tamanho restante do bloco será adicionado uma parte nesse e um 
+      ponteiro apontando para o restante do arquivo no outro bloco
+    UnSpanned - O bloco só recebe os arquivos inteiros, se não couber será adicionado em outro bloco
+  
+  Heap file  - Arquivo em Pilha
+    *Dados adicionados no fim do arquivo
+    *Desordenado
+    Inclusão - o último bloco de disco do arquivo é copiado no buffer, o novo registro é
+      acrescentado e o bloco é reescrito no disco.
+    Pesquisa - pesquisa sequencial bloco a bloco do arquivo (é dispendioso).
+      Para ler todos os registros pela ordem dos valores de algum campo, criamos a cópia ordenada
+        do arquivo.
+    Exclusão - Requer organização periodica do arquivo para reaproveitar o espaço
+      Encontrar o bloco, copiar ele para o buffer, exluir o arquivo selecionado, reescrever o bloco no disco
+        Ou
+      Marcador de exclusão - O arquivo não é excluido, apenas recebe um marcador que diz que ele foi excluido
+   
+   Sorted file - Arquivos ordenado
+    *Inclusão dispendiosa - Para inserir um registro é preciso achar o lugar certo e abrir espaço no arquivo para ele
+    *Exclusão também requer o mesmo tratamento, mas se usar marcadores de exclusão e reeorganização periodica, fica menos custoso  
+    Métodos para tornar a inclusão mais eficiente:
+      *Manter alguns espaços não utilizados em cada bloco para novos registros
+      *Criar um arquivo desordenado temporário, chamado arquivo de overflow. Os novos
+        registros são incluídos no final do arquivo de overflow, periodicamente o de overflow é classificado
+        e incorporado ao arquivo principal.
+
+Indice - Estrutura para aprimorar a busca
+  Ex1: CREATE [UNIQUE|FULLTEXT|SPATIAL] INDEX nome_indice ON nome_tabela (nome_col,...) [index_type]
+  Ex2: CREATE INDEX nome_index ON produto (nome) USING BTREE;
+  Ex3: DROP INDEX nomeindice
+  
+  Quando usar:
+    • Existem chaves primárias com garantia de unicidade
+    • Tabelas grandes e constantemente utilizadas
+    • Atributos frequentemente utilizados em cláusulas WHERE
+  Quando não usar:
+    • Tabelas muito pequenas
+    • Tabelas que precisam ser acessadas com varreduras (table scan)
+    • Atributos com domínios de poucos valores distintos
+  
+  Indice de nivel unico - Este tipo de índice geralmente é definido a partir de um único campo do arquivo chamado 
+    “campo de indexação”.
+    Um ponteiro aponta para o local exato de um registro com aquele valor de campo
+    Índice principal/primário
+      *Cada entrada possui o valor do campo chave primária para o primeiro registro de um bloco. Este primeiro registro 
+        é chamado de âncora de bloco.
+      *Indice não denso - O numero de entradas é o mesmo numero de blocos
+    Índice clustering
+      *É um índice criado a partir do conteúdo de um campo NÃO CHAVE.
+      *Dados organizados fisicamente com base no campo indexado
+      *O ponteiro aponta para primeiro o bloco em que o campo indexado aparece nos regitros
+      *Inclusão e exclusão de dados neste tipo de índice exige reordenação FÍSICA dos DADOS (e, consequentemente, uma possível reordenação do índice).
+      *Indice não denso - Existe uma entrada no índice para cada valor distinto do campo clustering
+    Índice secundário
+      *Dados desorganizados, porem podem estar organizados por outro indice
+      *Indice denso - Uma entrada para cada registro
+      Sobre campo chave - O index indexado é uma chave 
+      Sobre campo não chave - É um índice que utiliza um nível de acesso indireto com ponteiros de registros agrupados de acordo
+        com seus valores no campo de indexação
+  
+  Índice Multinível - A estrutura dos indices são implementadas sobre uma arvore B ou B+
+    Estrutura dinamica que permite que o índice expanda e reduza dinamicamente
+    Arvore B+ aceita mais entradas com menos niveis 
+    
+Otimização de consultas
+  Otimizar uma consulta ao banco de dados de forma a gerar menos dados para tratamento
+  Otimização em 5 fases
+  Fase 1 - Arvore algebrica generica (Sem otimização)
+  Fase 2 - Passar as seleções para baixo (Menos dados gerados pelo produto cartesiano)
+  Fase 3 - Definir em quais relações ocorreram o produto cartesiano, escolher relações que diminuam os dados que subirão
+  Fase 4 - Transformar seleções e produtos cartesianos em uniões (nessa sequência de cima pra baixo)
+  Fase 5 - Trazer as projeções para baixo das uniões e acima das seleções caso exista alguma
+ 
+Triggers - Dispara um evento quando comandos DML(Insert, Update, Delete) são chamados 
+  sintaxe:
+    CREATE TRIGGER novo_trigger AFTER INSERT ON minha_tabela FOR EACH ROW meus_comandos; 
+    DROP TRIGGER IF EXISTS nome_trigger;
+  Insert  
+    O operador NEW.nome_coluna, nos permite verificar o valor enviado para ser inserido em uma coluna de uma tabela.
+  Delete
+    O operador OLD.nome_coluna nos permite verificar o valor excluído ou a ser excluído.
+  Update
+    Tanto OLD.nome_coluna quanto NEW.nome_coluna estão disponíveis after ou before 
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
