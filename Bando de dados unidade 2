@@ -1,0 +1,128 @@
+Data WareHouse
+  *Data WareHouse
+  Tecnologia que visa ajudar os empresários a descobrir tendências, padrões e regras, que estão escondidos nos dados 
+  corporativos, de uma forma amigável e interativa.
+  -Data warehouse é um banco de dados projetados especialmente para analise gerencial.
+    
+  *OLTP - On-Line Transaction Processing / Processamento transacional online
+  Sistemas operacionais das organizações, são os sistemas transasionais. São usados no processamento de dados gerados
+  diariamente, usados para acompanhar rotina e dar suporte as funções go negocio operacional.
+  Ex: livros disponiveis em uma livraria / Assentos disponiveis em voo comercial
+  
+  *OLAP - On-Line Alalytical Processing / Processamento Analitico Online
+  “Análise, consolidação e síntese dinâmica de um grande volume de dados multidimensionais”
+  Se refere a tecnologia capaz de analisar grandes quantidades de dados dentro de um DW, trata se também da capacidade de 
+  visualisar essas informações para tomar decisões organizacional
+  -Olap apenas faz consultas, não sofre atualizações 
+  Ex: Qual curso mais usa a biblioteca da faculdade? / Qual campus é mais proximo da casa dos estudades de CC?
+  
+  *Data warehouse e OLAP
+  - Funcionando juntos, eles dão aos usuários subsídios para o processo de planejamento estratégico e para a tomada de decisão.
+  
+  *Estrategias de implementação Warehouse
+  -Top-down:
+  é quando desenvolve-se primeiro um DW completo para posteriormente segmentá-lo em bancos de dados menores e
+  orientados para assuntos departamentalizados, ou seja, divide o DW em áreas menores e mais específicas.
+  -Botton-up:
+  trata-se da situação é inversa. Neste caso, inicialmente, criam-se bancos de dados individuais para cada departamentos ou
+  grupo específico de usuários, de modo que seja possível consolidar futuramente um DW completo
+  
+  *Técnicas utilizadas em modelos multidimensionais
+  -Pivoteamento ou rotação: mostra diferentes orientações dos eixos
+  -Disposição Roll-up (Agregação): move a hierarquia no sentido ascendente – agrupamentos em unidades maiores ao longo de uma dimensão 
+  Ex: somando os dados trimestrais em semestrais e anuais.
+  Disposição drill-down: visão mais refinada, com mais detalhe 
+  Ex: desagregar as vendas em região, por vendas em sub-regiões e em vendas por estado
+  
+  *Modelo de armazenamento multidimensional implica em dois tipos de tabelas :
+  
+  Tabela de fatos – Tabela dominante, usualmente com grande volume de dados. Possui uma tupla para cada fato registrado,
+  identificada através de chave composta. A dimensão tempo sempre faz parte da chave. Fatos são tipicamente aditivos.
+  
+  Tabelas de dimensões – Tabelas que “qualificam” os fatos. Compostas de tuplas de atributos das dimensões. 
+  Identificam cada tupla do dado um join liga cada tabela de dimensão à tabela de fatos. Em geral, de volume bem 
+  menor que as tabelas de fatos
+  
+  *Esquemas Multidimensionais
+  Esquema estrela: Uma tabela de fatos tem apenas 1 tabela para cada dimensão
+  Esquema do floco de neve: Igual a estrela, porem acada tabela de dimensão possuem hierarquia, ou seja uma atras da outra
+  
+DataMining - Mineração
+  Processo de extração de informação novas, não trivial e útil de grandes bases de dados
+  
+  -explanação: explicar algum evento ou medida observada, como porque a venda de determinado produto caiu
+  -confirmação: confirmar uma hipótese. Um grupo que oferece segurança privada verifica que em determinada região o
+  aumento de crimes significou uma maior procura por esse tipode serviço.
+  -exploração: analisar os dados buscando relacionamentos novos e não previstos. Uma companhia de cartão de crédito
+  pode analisar seus registros históricos para determinar que fatores estão associados a pessoas que representam 
+  risco para créditos.
+  
+  *Os tipos de problemas que o DM podem resolver são:
+    -Associações: são relacionamentos significativos entre itens de dados armazenados. O objetivo da operação é encontrar
+    tendências, a partir de grande número de transações, que possam ser usadas para entender e explorar padrões de
+    comportamento dos dados.
+    -Padrões seqüenciais e séries temporais similares:  encontram eventos relacionados que ocorrem ao longo de um 
+    período de tempo. Um exemplo deste tipo de operação seria a identificação de padrões de sintomas e doenças em pesquisas 
+    médicas como a dengue.
+  
+  *Clustering - 
+  o agrupamento em clusters envolve segmentar a informação disponível em conjuntos definidos e homogêneos
+  baseando-se em atributos específicos. O conceito de clustering já tem uma longa história em estatística,
+  mas o que tem de novo em datamining é o fato de poder também ser aplicada a itens não numéricos.
+  
+  *Processos
+    -Selecionar dados – escolher os conjuntos de dados que serão usados pelo algorítmo de mineração. O analista deve 
+    identificar aonde estão os dados desejáveis, ter acesso a eles e transportar estes dados para um repositório
+    onde irá trabalhar
+    -Pré-processamento dos dados – Os dados selecionados estão em formato impróprio para análise, neste passo envolve
+    amostragem, limpeza, formatação, adaptação e transformação dos dados
+    -Mineração – Algorítmos são aplicados visando extrair informações interessantes. Pode envolver técnicas e
+    ferramentas diversas para : construção de modelos, detecção de padrões, e/ ou exploração visual
+    -Assimilação do resultados – Assimilar a informação minerada 
+    No caso de construção de modelos avaliar a robustez e efetividade do modelo produzido. No caso de extração de
+    padrões e exploração visual este passo consiste em interpretar a informação extraída, feito pelo perito
+  
+  *Tecnicas
+    -Estimação e predição – Examinar os atributos de um conjunto de entidades e baseado nos valores dos atributos construir
+    modelos que assinalam valores a atributos de uma nova entidade que se deseja caracterizar. Como certos atributos irão
+    se comportar no futuro. Exemplo : analisar as transações de compra para ver o comportamento em eventos de promoções e descontos
+    -Classificação – Repartir os dados de modo que diferentes classes e categorias possam ser identificadas com base 
+    na combinação de parâmetros. Exemplo :classificar clientes por tipo de frequencia ao estabelecimento, por afinidade
+    por tipos de item, por valor das compras
+    -Aglomerações (clustering)– Segmentar a população heterogênea em subgrupos homogêneos de entidades. Agrupar entidades
+    similares para se abstrai informações de alto nível sobre cada um destes grupo. Divide a população com base na 
+    similaridade entre registros.
+    -Descoberta de associações – identifica quais atributos estão associados com outros em um dado ambiente, de forma
+    inesperada. Exemplos : análise de cesta de mercado
+    -Visualização – descrever dados complexos em telas visuais de fácil interpretação. Aumenta a capacidade de entendimento.
+    Consultas interativas – inspecionar os dados através de controles interativos que permitem rapidamente formular
+    consultas sobre os dados. Utiliza-se de controles gráficos que permitem a formulação de “queries” com o movimento do
+    mouse. Combinado com a visualização permite que peritos rapidamente explorem de forma visual um conjunto e daso.
+    
+    *Aplicações
+    Marketing - Análise de comportamentos de consumidor com
+base em padrões de compras; determinação de estratégias
+para propaganda, localização de lojas e mala-direta; a
+segmentação de clientes , lojas ou produtos; projeto de
+catálogos, layout de lojas e campanhas publicitárias.
+Finanças – Análise de avaliação para concessão de crédito a
+clientes, segmentação de contas a receber, análise de
+desempenho de investimentos financeiros;detecção de fraudes
+Indústria – Otimização de recursos (equipamento, força de
+trabalho e matéria-prima); projeto ótimo de processo de
+produção
+Saúde - Análise e eficácia de certos tratamentos; otimização de
+processos dentro de um hospital; relacionamento de dados
+sobre o estado de saúde dos pacientes e qualificação de
+médicos; análise de efeitos colaterais das drogas.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
