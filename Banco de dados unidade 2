@@ -145,8 +145,33 @@
     utilizadas as ontologias. Ontologias são usadas como uma forma de representação e integração do
     conhecimento pela sua capacidade de reuso e interoperabilidade.
   
-  
-  
+    Classificação de sistemas de informações:
+    -Sistemas de Informações Transacionais (SIT): são sistemas de nível operacional direcionados ao suporte das atividades fins
+    da empresa, acompanhando a rotina, indicando o nível das vendas, compras, fluxo de caixa, emissão de notas fiscais.
+    
+    -Sistemas de Informações Gerenciais (SIG): são direcionados ao controle e monitoramento das atividades relacionadas ao nível
+    operacional, indicando simulações de cenários estruturados,sendo um sistema direcionado à média gerência. Se destinam ao
+    suporte de atividades, agregando dados internos e apresentando resumos das transações operacionais, permitindo acompanhar o
+    andamento e comparar desempenhos.
+    
+    -Sistemas de Apoio à Decisão (SAD): são direcionados a apoiar a decisão em situações não rotineiras. Atuam em nível
+    estratégico são direcionados para o estudo de tendências, posicionamentos da empresa, mudanças no ambiente interno ou
+    externo.
+        Arquitetura:
+        -Subsistemas de dados- 
+        Construção e gerência do banco de dados, que possui dados relacionados com o domínio do problema.
+        Nesse subsistema estão contemplados sistemas de extração, transformação e carga de dados.
+        Também se pode utilizar de repositórios de dados ao estilo Data Warehouse.
+        
+        -Subsistemas de modelo- 
+        Armazena as estratégias analíticas que atuam sobre os dados disponibilizados pelo subsistema de dados.
+        
+        -Subsistema de interface-
+        Responsável pela interação entre o sistema e o usuário.
+        
+    *Atualmente, a implementação de arquitetura SAD mais utilizada é a de Business Intelligence (BI) que é a
+    evolução dos sistemas de apoio à decisão.
+       
   
   
   
