@@ -1,4 +1,6 @@
-Data WareHouse
+
+****************************    Data WareHouse    ****************************    
+
   *Data WareHouse
   Tecnologia que visa ajudar os empresários a descobrir tendências, padrões e regras, que estão escondidos nos dados 
   corporativos, de uma forma amigável e interativa.
@@ -47,7 +49,8 @@ Data WareHouse
   Esquema estrela: Uma tabela de fatos tem apenas 1 tabela para cada dimensão
   Esquema do floco de neve: Igual a estrela, porem acada tabela de dimensão possuem hierarquia, ou seja uma atras da outra
   
-DataMining - Mineração
+****************************    DataMining - Mineração    ****************************    
+
   Processo de extração de informação novas, não trivial e útil de grandes bases de dados
   
   -explanação: explicar algum evento ou medida observada, como porque a venda de determinado produto caiu
@@ -86,36 +89,61 @@ DataMining - Mineração
     -Estimação e predição – Examinar os atributos de um conjunto de entidades e baseado nos valores dos atributos construir
     modelos que assinalam valores a atributos de uma nova entidade que se deseja caracterizar. Como certos atributos irão
     se comportar no futuro. Exemplo : analisar as transações de compra para ver o comportamento em eventos de promoções e descontos
+    
     -Classificação – Repartir os dados de modo que diferentes classes e categorias possam ser identificadas com base 
     na combinação de parâmetros. Exemplo :classificar clientes por tipo de frequencia ao estabelecimento, por afinidade
     por tipos de item, por valor das compras
+    
     -Aglomerações (clustering)– Segmentar a população heterogênea em subgrupos homogêneos de entidades. Agrupar entidades
     similares para se abstrai informações de alto nível sobre cada um destes grupo. Divide a população com base na 
     similaridade entre registros.
+    
     -Descoberta de associações – identifica quais atributos estão associados com outros em um dado ambiente, de forma
     inesperada. Exemplos : análise de cesta de mercado
+    
     -Visualização – descrever dados complexos em telas visuais de fácil interpretação. Aumenta a capacidade de entendimento.
     Consultas interativas – inspecionar os dados através de controles interativos que permitem rapidamente formular
     consultas sobre os dados. Utiliza-se de controles gráficos que permitem a formulação de “queries” com o movimento do
     mouse. Combinado com a visualização permite que peritos rapidamente explorem de forma visual um conjunto e daso.
     
     *Aplicações
-    Marketing - Análise de comportamentos de consumidor com
-base em padrões de compras; determinação de estratégias
-para propaganda, localização de lojas e mala-direta; a
-segmentação de clientes , lojas ou produtos; projeto de
-catálogos, layout de lojas e campanhas publicitárias.
-Finanças – Análise de avaliação para concessão de crédito a
-clientes, segmentação de contas a receber, análise de
-desempenho de investimentos financeiros;detecção de fraudes
-Indústria – Otimização de recursos (equipamento, força de
-trabalho e matéria-prima); projeto ótimo de processo de
-produção
-Saúde - Análise e eficácia de certos tratamentos; otimização de
-processos dentro de um hospital; relacionamento de dados
-sobre o estado de saúde dos pacientes e qualificação de
-médicos; análise de efeitos colaterais das drogas.
-  
+    -Marketing - Análise de comportamentos de consumidor com base em padrões de compras; determinação de estratégias
+    para propaganda, localização de lojas e mala-direta; a segmentação de clientes , lojas ou produtos; projeto de
+    catálogos, layout de lojas e campanhas publicitárias.
+    
+    -Finanças – Análise de avaliação para concessão de crédito a clientes, segmentação de contas a receber, análise de
+    desempenho de investimentos financeiros;detecção de fraudes Indústria – Otimização de recursos (equipamento, força de
+    trabalho e matéria-prima); projeto ótimo de processo de produção
+    
+    -Saúde - Análise e eficácia de certos tratamentos; otimização de processos dentro de um hospital; relacionamento de dados
+    sobre o estado de saúde dos pacientes e qualificação de médicos; análise de efeitos colaterais das drogas.
+    
+
+****************************    busines inteligence    ****************************    
+*Engenharia do conhecimento
+    A área da Engenharia do Conhecimento nasceu como subárea da Inteligência Artificial,
+    que tinha como foco a criação de sistemas especialistas, esses sistemas eram baseados
+    em regras lógicas extraídas da cabeça de especialista em um determinado domínio. 
+    
+    -Paradigma de transporte: Transpor o conhecimento de um especialista para um sistema especialista
+    
+    A Nova Engenharia do Conhecimento faz uso do “paradigma de modelagem”. Esse nome é dado pois essa abordagem está 
+    focada na modelagem do conhecimento, de modo que o mesmo possa ser reaproveitado em outros sistemas baseados em 
+    conhecimento, permitindo, assim, a sua socialização entre os membros da organização.
+    
+    Utiliza dos conceitos da IA:
+        – Reconhecimento de entidades nomeadas
+        – Algoritmos de clusterização (agrupamentos)
+        – Processamento de linguagem natural
+        – Raciocínio baseado em casos
+        – Algoritmos genéticos
+        – Redes neurais artificiais.
+        
+    -Ontologia    
+    Depois de extrair o conhecimento implícito nas bases de documentos e de dados da organização, é necessário
+    representá‐lo formalmente de maneira que ele possa ser corretamente armazenado e reutilizado, para isso são
+    utilizadas as ontologias. Ontologias são usadas como uma forma de representação e integração do
+    conhecimento pela sua capacidade de reuso e interoperabilidade.
   
   
   
